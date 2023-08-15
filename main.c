@@ -3,16 +3,16 @@
 #include "functions.h"
 
 //global variables
-int vehicleSpeed=0,engineState=0,AC=0,temperature=25,engineTemperature=0,EngineTemperatureController=0;
+int vehicleSpeed=0,engineState=0,AC=0,temperature=25,engineTemperature=95,EngineTemperatureController=0;
 
 
 int main()
 {
-     char inputCharSensor,sensorsSetChoice;
+     char inputCharSensor,sensorsSetChoice,choice;
      int inputIntSensor;
-
-    char choice=welcomeMenu();
-    switch(choice){
+     choice=welcomeMenu();
+    while(choice!='a'||choice!='b'){
+       switch(choice){
         case 'a':
             engineState=1;
             do{
@@ -45,12 +45,15 @@ int main()
             DisplayCurrentVehicleState();
             break;
         case 'b':
-              choice=welcomeMenu();
+             choice=welcomeMenu();
               break;
         case 'c':
         return;
         default: printf("You entered invalid input!");break;
     }
+    }
+
+
 
     return 0;
 }
